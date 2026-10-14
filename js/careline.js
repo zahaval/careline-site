@@ -322,29 +322,24 @@
      4. Reveals, nav, video loaders, live clock
   ===================================================================== */
   CL.reveals = function () {
-    if (!window.gsap) { document.querySelectorAll('[data-rv]').forEach(el => el.classList.add('rv-in')); return; }
-    if (window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
-    const els = document.querySelectorAll('[data-rv]');
-    if (RM) { els.forEach(el => el.classList.add('rv-in')); return; }
-    const vh = window.innerHeight;
-    const above = el => el.getBoundingClientRect().top < vh * 0.88; // already in view: play now, don't wait for a scroll event
-    els.forEach(el => {
-      const kids = el.hasAttribute('data-rv-stagger') ? el.children : [el];
-      const play = () => gsap.to(kids, { opacity: 1, y: 0, duration: 1.1, ease: 'power3.out', stagger: 0.09 });
-      gsap.set(kids, { opacity: 0, y: 26 });
-      if (above(el)) { play(); return; }
-      ScrollTrigger.create({ trigger: el, start: 'top 86%', once: true, onEnter: play });
-    });
-    // masked line reveals for headlines
-    document.querySelectorAll('[data-lines]').forEach(h => {
-      const spans = h.querySelectorAll('.ln > span');
-      if (!spans.length) return;
-      const play = () => gsap.to(spans, { yPercent: 0, duration: 1.2, ease: 'power4.out', stagger: 0.1 });
-      gsap.set(spans, { yPercent: 110 });
-      if (above(h)) { play(); return; }
-      ScrollTrigger.create({ trigger: h, start: 'top 88%', once: true, onEnter: play });
-    });
-    window.addEventListener('load', () => ScrollTrigger.refresh());
+    const els = document.querySelectorAll('[data-rv]'), heads = document.querySelectorAll('[data-lines]');
+    if (!window.gsap || RM) { els.forEach(el => el.classList.add('rv-in')); return; }
+    // IntersectionObserver rather than scroll position: plays whatever direction the element enters from,
+    // including a page restored mid-scroll, and never leaves a headline stuck hidden.
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        const el = en.target; io.unobserve(el);
+        if (el.hasAttribute('data-lines')) {
+          gsap.to(el.querySelectorAll('.ln > span'), { yPercent: 0, duration: 1.2, ease: 'power4.out', stagger: 0.1 });
+        } else {
+          const kids = el.hasAttribute('data-rv-stagger') ? el.children : [el];
+          gsap.to(kids, { opacity: 1, y: 0, duration: 1.1, ease: 'power3.out', stagger: 0.09 });
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.01 });
+    els.forEach(el => { gsap.set(el.hasAttribute('data-rv-stagger') ? el.children : [el], { opacity: 0, y: 26 }); io.observe(el); });
+    heads.forEach(h => { const spans = h.querySelectorAll('.ln > span'); if (!spans.length) return; gsap.set(spans, { yPercent: 110 }); io.observe(h); });
   };
 
   CL.nav = function () {
