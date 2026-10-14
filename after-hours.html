@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CareLine Concierge — Care doesn't stop after hours. Neither do we.</title>
+<meta name="description" content="CareLine Concierge is the 24/7 resident and family concierge line for nursing homes. One point of contact from admission through discharge, with real-time insight for leadership.">
+<meta name="theme-color" content="#081A3A">
+<meta property="og:title" content="CareLine Concierge"><meta property="og:description" content="One point of contact. 24/7 support. Real-time insight."><meta property="og:type" content="website">
+<link rel="icon" href="img/mark.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Schibsted+Grotesk:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   CARELINE — version B "After hours"
+   navy night · white paper · one red band
+   Newsreader (display) · Schibsted Grotesk (text) · JetBrains Mono (timestamps, labels)
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --night:#081A3A; --night-2:#0F2A54; --night-3:#132F5E;
+  --paper:#FFFFFF; --paper-2:#F4F6FA;
+  --red:#D21A22; --red-l:#FF5A61; --ink:#0F2A54;
+  --dim:rgba(255,255,255,.66); --dim-2:rgba(255,255,255,.42); --mute:#5B6477;
+  --ln:rgba(255,255,255,.14); --ln-l:rgba(15,42,84,.14);
+  --serif:"Newsreader",Georgia,serif; --sans:"Schibsted Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --gut:clamp(20px,4.6vw,72px); --maxw:1440px; --ease:cubic-bezier(.62,.05,.28,.99);
+}
+*{box-sizing:border-box} html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--night);color:#fff;font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{max-width:100%;display:block} a{color:inherit;text-decoration:none} button,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--red-l);outline-offset:3px} ::selection{background:var(--red);color:#fff}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+.skip{position:absolute;left:-9999px;top:0;z-index:300;background:var(--red);color:#fff;padding:12px 20px}.skip:focus{left:12px;top:12px}
+p{margin:0 0 1.1em}p:last-child{margin-bottom:0}
+
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim-2)}
+.on-paper .mono{color:var(--mute)}
+.mono.red{color:var(--red-l)}.on-paper .mono.red{color:var(--red)}
+.disp{font-family:var(--serif);font-weight:300;font-variation-settings:"opsz" 72;margin:0;letter-spacing:-.025em;line-height:.98;font-size:clamp(50px,7.4vw,118px);text-wrap:balance}
+.t2{font-family:var(--serif);font-weight:300;font-variation-settings:"opsz" 72;margin:0;letter-spacing:-.02em;line-height:1.02;font-size:clamp(36px,5vw,76px);text-wrap:balance}
+.t3{font-family:var(--serif);font-weight:400;margin:0;line-height:1.12;font-size:clamp(24px,2.4vw,32px);letter-spacing:-.01em}
+.disp i,.t2 i,.t3 i{font-style:italic;font-weight:300;color:var(--red-l)}.on-paper .disp i,.on-paper .t2 i,.on-paper .t3 i{color:var(--red)}
+.lead{font-size:clamp(17px,1.3vw,20px);line-height:1.6;color:var(--dim);max-width:54ch}.lead strong{color:#fff;font-weight:600}
+.on-paper .lead{color:var(--mute)}.on-paper .lead strong{color:var(--ink)}
+.ln{display:block;overflow:hidden;padding:.08em .1em;margin:-.02em -.1em}.ln>span{display:block}
+
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:50px;padding:14px 24px;border:1px solid var(--red);background:var(--red);color:#fff;font-weight:600;font-size:14px;letter-spacing:.02em;cursor:pointer;position:relative;overflow:hidden;transition:color .35s var(--ease),border-color .35s;white-space:nowrap}
+.btn::before{content:"";position:absolute;inset:0;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+.btn:hover::before{transform:scaleX(1)}.btn:hover{color:var(--ink);border-color:#fff}.btn>*{position:relative}
+.btn.ghost{background:transparent;border-color:var(--ln);color:#fff}.btn.ghost::before{background:#fff}.btn.ghost:hover{color:var(--ink)}
+.on-paper .btn.ghost{border-color:var(--ln-l);color:var(--ink)}.on-paper .btn.ghost::before{background:var(--ink)}.on-paper .btn.ghost:hover{color:#fff}
+.btn .arrow{width:16px;height:16px;transition:transform .35s var(--ease)}.btn:hover .arrow{transform:translateX(4px)}
+
+/* nav */
+header{position:fixed;inset:0 0 auto 0;z-index:90;transition:background .4s,box-shadow .4s}
+header.on{background:rgba(8,26,58,.85);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);box-shadow:0 1px 0 var(--ln)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:84px;transition:height .4s var(--ease)}header.on .nav{height:66px}
+.brand img{height:34px;width:auto}
+.menu{display:flex;gap:clamp(18px,2.4vw,34px)}.menu a{font-size:14px;font-weight:500;color:var(--dim);transition:color .3s}.menu a:hover{color:#fff}
+.nav-r{display:flex;align-items:center;gap:22px}
+.clockpill{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--dim)}
+.clockpill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red-l);animation:blink 1.8s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.nav .btn{min-height:42px;padding:10px 18px;font-size:13px}
+.burger{display:none;width:44px;height:44px;border:0;background:none;cursor:pointer;padding:10px}.burger span{display:block;height:2px;background:#fff;margin:6px 0;transition:transform .3s,opacity .3s}
+body.menu-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}body.menu-open .burger span:nth-child(2){opacity:0}body.menu-open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.mpanel{display:none}
+@media(max-width:900px){.menu,.clockpill,.nav .btn{display:none}.burger{display:block}
+.mpanel{display:block;position:fixed;inset:66px 0 0 0;background:var(--night);z-index:85;transform:translateY(-105%);transition:transform .5s var(--ease);padding:28px var(--gut)}.mpanel.open{transform:none}
+.mpanel a{display:block;font-family:var(--serif);font-size:38px;line-height:1.2;padding:8px 0;border-bottom:1px solid var(--ln)}.mpanel .mp-cta{margin-top:24px;display:grid;gap:12px}.mpanel .mp-cta a{font-family:var(--sans);font-size:16px;border:0;padding:0}}
+
+/* ————— HERO ————— */
+.hero{position:relative;min-height:100svh;display:grid;align-items:center;padding:120px 0 80px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(28px,5vw,80px);align-items:center;position:relative;z-index:2}
+.hero-bg{position:absolute;right:-8vw;top:50%;transform:translateY(-50%);width:min(900px,70vw);aspect-ratio:1;z-index:1;opacity:.9}
+.hero-bg canvas{width:100%;height:100%;display:block}
+.hero .mono{margin-bottom:22px;display:flex;gap:16px;flex-wrap:wrap}
+.hero .mono b{font-weight:500;color:#fff}
+.hero .lead{margin-top:26px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero-foot{position:absolute;left:var(--gut);right:var(--gut);bottom:26px;display:flex;justify-content:space-between;z-index:2}
+@media(max-width:960px){.hero .wrap{grid-template-columns:1fr}.hero-bg{right:-30vw;top:30%;width:120vw;opacity:.35}.hero-foot{display:none}}
+
+/* feed card (hero) */
+.feed{position:relative;background:rgba(8,26,58,.72);border:1px solid var(--ln);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:24px 26px 20px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.feed::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--red)}
+.feed-top{display:flex;justify-content:space-between;align-items:center}
+.feed-top .live{display:flex;align-items:center;gap:8px;color:var(--red-l)}.feed-top .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red-l);animation:blink 1.4s infinite}
+.feed-who{margin-top:20px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:14px;color:var(--dim)}
+.feed-who b{color:#fff;font-weight:600}
+.feed-clock{font-family:var(--mono);font-size:22px;color:#fff;letter-spacing:.02em}
+.bubble{margin-top:14px;background:rgba(255,255,255,.08);border:1px solid var(--ln);padding:14px 16px;font-size:16.5px;line-height:1.45;min-height:84px;color:#fff}
+.bubble::after{content:"";display:inline-block;width:2px;height:1em;background:var(--red-l);vertical-align:-2px;margin-left:2px;animation:blink 1s infinite}
+.feed.is-resolved .bubble::after{display:none}
+.steps{list-style:none;margin:20px 0 0;padding:0;position:relative}
+.steps::before{content:"";position:absolute;left:6px;top:10px;bottom:10px;width:1px;background:var(--ln)}
+.fs{display:grid;grid-template-columns:14px 1fr;gap:14px;padding:6px 0;opacity:.3;transition:opacity .4s}.fs.is-on,.fs.is-done{opacity:1}
+.fs-dot{width:14px;height:14px;border-radius:50%;border:1.5px solid var(--ln);background:var(--night);margin-top:4px;transition:border-color .3s,background .3s}
+.fs.is-on .fs-dot{border-color:var(--red-l);animation:pulse 1.2s infinite}
+.fs.is-done .fs-dot{border-color:#fff;background:#fff;animation:none}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,90,97,.45)}100%{box-shadow:0 0 0 9px rgba(255,90,97,0)}}
+.fs-t b{display:block;font-weight:600;font-size:14.5px}.fs-t em{display:block;font-style:normal;font-size:13px;color:var(--dim)}
+.feed-foot{margin-top:16px;padding-top:12px;border-top:1px solid var(--ln);display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--dim-2)}
+.feed-foot b{color:var(--red-l);font-weight:600;opacity:0}
+
+/* chapters */
+section{position:relative}.chapter{padding-block:clamp(88px,10vw,160px)}
+.on-paper{background:var(--paper);color:var(--ink)}
+.on-night-2{background:var(--night-2)}
+.on-red{background:var(--red);color:#fff}
+.rule{border:0;height:1px;background:var(--ln);margin:0}.on-paper .rule{background:var(--ln-l)}
+
+/* ticker strip */
+.strip{border-top:1px solid var(--ln);border-bottom:1px solid var(--ln);overflow:hidden;padding:18px 0;font-family:var(--serif);font-size:clamp(22px,2.4vw,32px);white-space:nowrap}
+.strip-in{display:inline-flex;gap:64px;animation:tick 42s linear infinite;will-change:transform}
+.strip-in span{display:inline-flex;align-items:center;gap:28px}.strip-in i{font-style:normal;color:var(--red-l);font-size:.6em}
+@media(prefers-reduced-motion:reduce){.strip-in{animation:none}}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* mission on paper */
+.mission .wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(28px,6vw,100px)}
+.mission .t2{font-size:clamp(40px,5.6vw,88px)}
+.mission .lead{margin-top:6px}
+.mission .lead p+p{margin-top:1em}
+@media(max-width:900px){.mission .wrap{grid-template-columns:1fr}}
+
+/* what we do — 4 columns on night-2 */
+.what .head{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:end;margin-bottom:54px}
+.cols{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ln)}
+.cols div{padding:30px 26px 34px 0;border-right:1px solid var(--ln)}
+.cols div:last-child{border-right:0}
+.cols div+div{padding-left:26px}
+.cols .mono{display:block;margin-bottom:46px}
+.cols h3{margin:0 0 12px}.cols p{color:var(--dim);font-size:15px;max-width:32ch}
+@media(max-width:1000px){.cols{grid-template-columns:1fr 1fr}.cols div:nth-child(2){border-right:0}.cols div:nth-child(n+3){border-top:1px solid var(--ln)}.cols div:nth-child(3){padding-left:0}}
+@media(max-width:600px){.what .head{grid-template-columns:1fr}.cols{grid-template-columns:1fr}.cols div{border-right:0;padding-left:0!important;border-top:1px solid var(--ln)}.cols div:first-child{border-top:0}}
+
+/* insight on paper */
+.insight .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(32px,6vw,100px);align-items:center}
+.dash{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:var(--night);color:#fff;padding:20px 22px;position:relative}
+.card.wide{grid-column:1/-1}
+.card .k{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim-2);display:flex;justify-content:space-between}
+.card .v{font-family:var(--serif);font-weight:300;font-size:clamp(40px,4vw,58px);line-height:1;margin-top:10px;letter-spacing:-.02em}
+.card .v small{font-family:var(--sans);font-size:13.5px;color:var(--dim);letter-spacing:0;margin-left:8px}
+.bars{margin-top:16px;display:grid;gap:10px}
+.bar{display:grid;grid-template-columns:150px 1fr 36px;align-items:center;gap:12px;font-size:13.5px}
+.bar i{display:block;height:6px;background:rgba(255,255,255,.14);overflow:hidden;font-style:normal}
+.bar i::after{content:"";display:block;height:100%;width:var(--w);background:var(--red-l);transform-origin:left;transform:scaleX(0);transition:transform 1.2s var(--ease)}
+.bars.go .bar i::after{transform:scaleX(1)}
+.bar b{text-align:right;font-weight:500;color:var(--dim)}
+.sample{grid-column:1/-1;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+@media(max-width:900px){.insight .wrap{grid-template-columns:1fr}.bar{grid-template-columns:120px 1fr 32px}}
+
+/* videos on night */
+.videos .head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px}
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.vid{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--night-2);border:1px solid var(--ln);color:#fff;isolation:isolate}
+.vid::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 30% 20%,rgba(255,255,255,.08),transparent 60%);z-index:-1}
+.vid button{position:absolute;inset:0;width:100%;border:0;background:none;cursor:pointer;color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:24px 26px;text-align:left}
+.vid .vt{font-family:var(--serif);font-weight:300;font-size:clamp(28px,3vw,44px);line-height:1.02;max-width:12ch;letter-spacing:-.015em}.vid .vt i{color:var(--red-l)}
+.vid .vp{display:flex;align-items:center;gap:14px;font-size:14px;color:var(--dim)}
+.vid .play{width:52px;height:52px;border-radius:50%;background:var(--red);display:grid;place-items:center;transition:transform .4s var(--ease)}.vid button:hover .play{transform:scale(1.12)}
+.vid .play svg{width:16px;height:16px;fill:#fff;margin-left:3px}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.vid.is-playing button{display:none}
+@media(max-width:760px){.vgrid{grid-template-columns:1fr}.videos .head{flex-direction:column;align-items:start}}
+
+/* map on paper */
+.map .wrap{display:grid;grid-template-columns:1fr 1.6fr;gap:clamp(28px,5vw,80px);align-items:center}
+.mapbox{position:relative;aspect-ratio:1028/746;width:100%}.mapbox canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.maplabel{position:absolute;pointer-events:none;background:var(--night);color:#fff;padding:8px 12px;font-size:13px;line-height:1.25;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s;white-space:nowrap;z-index:3}
+.maplabel.is-on{opacity:1;transform:none}.maplabel b{display:block;font-weight:600}.maplabel span{color:var(--dim);font-size:12px;font-family:var(--mono)}
+.maplabel[data-status=active] span{color:var(--red-l)}
+.legend{display:flex;gap:22px;margin-top:22px;font-size:13px;color:var(--mute)}
+.legend span{display:flex;align-items:center;gap:8px}.legend i{width:9px;height:9px;border-radius:50%;background:var(--red)}.legend i.b{background:var(--ink);opacity:.3}
+.states{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px}.states span{border:1px solid var(--ln-l);padding:6px 12px;font-size:13px}.states span.hq{background:var(--ink);color:#fff;border-color:var(--ink)}
+@media(max-width:900px){.map .wrap{grid-template-columns:1fr}}
+
+/* red band */
+.band{padding-block:clamp(72px,9vw,140px)}
+.band .t2{font-size:clamp(38px,6.2vw,96px);max-width:14ch}
+.band .t2 i{color:#fff;opacity:.85}
+.band .mono{color:rgba(255,255,255,.7);margin-bottom:22px}
+
+/* contact on night */
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,100px)}
+.direct{margin-top:34px;display:grid}
+.direct a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:16px 0;border-top:1px solid var(--ln);font-size:18px;transition:color .3s}
+.direct a:last-child{border-bottom:1px solid var(--ln)}.direct a:hover{color:var(--red-l)}
+form{display:grid;gap:16px;grid-template-columns:1fr 1fr}.f{display:grid;gap:6px}.f.full{grid-column:1/-1}
+label{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+input,textarea{border:1px solid var(--ln);background:rgba(255,255,255,.05);padding:14px 16px;font-size:16px;width:100%;color:#fff;transition:border-color .3s}
+input:focus,textarea:focus{border-color:#fff;outline:none}textarea{min-height:120px;resize:vertical}
+form .btn{grid-column:1/-1;justify-self:start}.ok{grid-column:1/-1;color:var(--red-l)}
+@media(max-width:900px){.contact .wrap{grid-template-columns:1fr}}@media(max-width:560px){form{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--ln);padding:40px 0 34px;font-size:13.5px;color:var(--dim)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer img{height:28px}footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:#fff}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="CareLine Concierge home"><img src="img/logo-wide-white.png" alt="CareLine Concierge"></a>
+    <nav class="menu" aria-label="Primary"><a href="#what">What we do</a><a href="#insight">Insight</a><a href="#videos">Videos</a><a href="#where">Where we are</a><a href="#contact">Contact</a></nav>
+    <div class="nav-r">
+      <span class="clockpill">Line open · <span data-clock>—</span></span>
+      <a class="btn" href="#contact"><span>Book a walkthrough</span></a>
+      <button class="burger" data-menu aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mpanel" data-menu-panel>
+    <a href="#what">What we do</a><a href="#insight">Insight</a><a href="#videos">Videos</a><a href="#where">Where we are</a><a href="#contact">Contact</a>
+    <div class="mp-cta"><a href="#contact">Book a walkthrough →</a><a href="tel:+15165221649">(516) 522-1649</a></div>
+  </div>
+<main id="main">
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true"><canvas id="field"></canvas></div>
+  <div class="wrap">
+    <div>
+      <p class="mono"><span class="red">24/7 resident &amp; family concierge</span><span>For nursing homes</span></p>
+      <h1 class="disp" data-lines><span class="ln"><span>Care doesn't stop</span></span><span class="ln"><span>after hours.</span></span><span class="ln"><span><i>Neither do we.</i></span></span></h1>
+      <p class="lead">CareLine gives residents and families <strong>one dedicated point of contact</strong> to call or text, any hour, from admission through discharge. Every concern is heard, documented, routed, and followed through. And every call becomes insight your leadership can see.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#contact"><span>Book a walkthrough</span><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        <a class="btn ghost" href="#videos"><span>Watch the film · 2 min</span></a>
+      </div>
+    </div>
+    <div class="feed" id="feed" aria-live="polite">
+      <div class="feed-top mono"><span class="live">Live line</span><span data-feed-index>Case 1 of 4</span></div>
+      <div class="feed-who"><div><b data-feed-from>Daughter of resident, Rm 212</b><br><span data-feed-via>Text</span> · to CareLine</div><div class="feed-clock" data-feed-clock>2:14 AM</div></div>
+      <div class="bubble" data-feed-msg></div>
+      <ol class="steps" data-feed-steps></ol>
+      <div class="feed-foot"><span>Sample case · details changed for privacy</span><b data-feed-elapsed>Resolved in 17 minutes</b></div>
+    </div>
+  </div>
+  <div class="hero-foot mono"><span>Headquartered in New York</span><span>(516) 522-1649</span></div>
+</section>
+
+<div class="strip" aria-hidden="true"><div class="strip-in">
+  <span>One point of contact<i>●</i></span><span>24/7 support<i>●</i></span><span>Real-time insight<i>●</i></span><span>Admission through discharge<i>●</i></span>
+  <span>One point of contact<i>●</i></span><span>24/7 support<i>●</i></span><span>Real-time insight<i>●</i></span><span>Admission through discharge<i>●</i></span>
+</div></div>
+
+<section class="chapter on-paper mission" id="mission">
+  <div class="wrap">
+    <div data-rv><p class="mono red">Our promise</p><h2 class="t2">Let us handle the communication, while you earn <i>our trust.</i></h2></div>
+    <div class="lead" data-rv>
+      <p>CareLine Concierge is a 24/7 resident and family concierge service designed specifically for nursing homes, providing dedicated support, communication, and assistance from admission through discharge.</p>
+      <p>Residents and their families get a dedicated point of contact they can call or text for any need, from everyday requests to time-sensitive matters. We make sure each concern is heard, properly documented, communicated to the appropriate team, and followed through until it is addressed.</p>
+      <p>But CareLine is more than a communication service. Every call and text becomes valuable insight for the facility: real-time visibility for owners, administrators, and leadership into what residents and families are actually experiencing.</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter on-night-2 what" id="what">
+  <div class="wrap">
+    <div class="head" data-rv><div><p class="mono red">What we do</p><h2 class="t2">More than a <i>phone line.</i></h2></div><p class="lead">Residents and families get a single number to call or text. Your teams get concerns that arrive documented, routed, and tracked to resolution.</p></div>
+    <div class="cols" data-rv data-rv-stagger>
+      <div><span class="mono">Any hour</span><h3 class="t3">One number to call or text</h3><p>Residents and families reach a real person, day or night, for everyday requests and time-sensitive matters alike.</p></div>
+      <div><span class="mono">Every concern</span><h3 class="t3">Heard, then documented</h3><p>Every concern is captured in full and logged to the resident's record, so nothing lives in a hallway conversation.</p></div>
+      <div><span class="mono">The right team</span><h3 class="t3">Routed and followed through</h3><p>We send each matter to the right department and stay on it until it's addressed, then close the loop with the family.</p></div>
+      <div><span class="mono">Both ends of the stay</span><h3 class="t3">Admission through discharge</h3><p>We support the first day and the last, gather resident and family feedback, and hand leadership organized reporting.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter on-paper insight" id="insight">
+  <div class="wrap">
+    <div data-rv>
+      <p class="mono red">Real-time insight</p>
+      <h2 class="t2">Every call becomes <i>insight.</i></h2>
+      <p class="lead" style="margin-top:22px">Owners, administrators, and leadership get real-time visibility into what residents and families are experiencing: patterns by unit and category, response times, and accountability you can show a surveyor, a board, or a family.</p>
+      <p class="lead" style="margin-top:14px">Organized data. Clear reporting. Better operational decisions.</p>
+    </div>
+    <div class="dash" data-rv data-rv-stagger>
+      <div class="card"><div class="k">First response</div><div class="v">4<small>min avg</small></div></div>
+      <div class="card"><div class="k">Followed through</div><div class="v">100<small>% of concerns</small></div></div>
+      <div class="card wide"><div class="k"><span>Concerns by category</span><span>This week</span></div>
+        <div class="bars" id="bars">
+          <div class="bar"><span>Nursing response</span><i style="--w:76%"></i><b>38</b></div>
+          <div class="bar"><span>Dietary</span><i style="--w:42%"></i><b>21</b></div>
+          <div class="bar"><span>Housekeeping</span><i style="--w:28%"></i><b>14</b></div>
+          <div class="bar"><span>Discharge planning</span><i style="--w:22%"></i><b>11</b></div>
+          <div class="bar"><span>Billing &amp; admissions</span><i style="--w:18%"></i><b>9</b></div>
+        </div>
+      </div>
+      <div class="card"><div class="k">Family check-ins</div><div class="v">212<small>this month</small></div></div>
+      <div class="card"><div class="k">After-hours contacts</div><div class="v">31<small>% of volume</small></div></div>
+      <div class="sample">Sample data for illustration</div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter videos" id="videos">
+  <div class="wrap">
+    <div class="head" data-rv><div><p class="mono red">Two perspectives</p><h2 class="t2">See it from <i>both sides.</i></h2></div><p class="lead" style="max-width:34ch">What CareLine feels like for a resident and family, and what it changes for the people running the building.</p></div>
+    <div class="vgrid" data-rv data-rv-stagger>
+      <div class="vid" data-vimeo="1224449313" data-title="The resident and family perspective"><button type="button"><span class="mono">For residents &amp; families</span><span class="vt">Someone always <i>picks up.</i></span><span class="vp"><span class="play"><svg viewBox="0 0 10 10"><path d="M1 0l9 5-9 5z"/></svg></span>Resident perspective · 2:05</span></button></div>
+      <div class="vid" data-vimeo="1224449881" data-title="The owner and administrator perspective"><button type="button"><span class="mono">For owners &amp; administrators</span><span class="vt">Finally, you can <i>see it.</i></span><span class="vp"><span class="play"><svg viewBox="0 0 10 10"><path d="M1 0l9 5-9 5z"/></svg></span>Administrator perspective · 2:15</span></button></div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter on-paper map" id="where">
+  <div class="wrap">
+    <div data-rv>
+      <p class="mono red">Where we are</p>
+      <h2 class="t2">New York first. Then <i>everywhere.</i></h2>
+      <p class="lead" style="margin-top:22px">CareLine is headquartered on Long Island and works with facilities across the Northeast and beyond. Move across the map to see where we're active.</p>
+      <div class="legend"><span><i></i>Active</span><span><i class="b"></i>Available on request</span></div>
+      <div class="states" id="stateChips"></div>
+    </div>
+    <div class="mapbox" id="map" data-rv><canvas role="img" aria-label="Map of the United States showing where CareLine Concierge is active"></canvas><div class="maplabel" data-map-label></div></div>
+  </div>
+</section>
+
+<section class="band on-red" id="quote">
+  <div class="wrap" data-rv>
+    <p class="mono">Just like care doesn't stop after hours</p>
+    <h2 class="t2">Neither should <i>communication.</i></h2>
+  </div>
+</section>
+
+<section class="chapter contact" id="contact">
+  <div class="wrap">
+    <div data-rv>
+      <p class="mono red">Bring CareLine to your facility</p>
+      <h2 class="t2">Let's talk about <i>your building.</i></h2>
+      <p class="lead" style="margin-top:22px">A 20-minute walkthrough of the line, the portal, and the reporting your leadership team would see.</p>
+      <div class="direct">
+        <a href="tel:+15165221649"><span class="mono">Call or text</span><span>(516) 522-1649</span></a>
+        <a href="mailto:ejotkowitz@carelineconcierge.com"><span class="mono">Email</span><span>ejotkowitz@carelineconcierge.com</span></a>
+        <a href="https://portal.carelineconcierge.com" target="_blank" rel="noopener"><span class="mono">Facility portal</span><span>portal.carelineconcierge.com ↗</span></a>
+      </div>
+    </div>
+    <form data-mailto="ejotkowitz@carelineconcierge.com" data-rv>
+      <div class="f"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div>
+      <div class="f"><label for="facility">Facility</label><input id="facility" name="facility" autocomplete="organization"></div>
+      <div class="f"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+      <div class="f"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+      <div class="f full"><label for="message">What would you like to solve?</label><textarea id="message" name="message"></textarea></div>
+      <button class="btn" type="submit"><span>Request a walkthrough</span></button>
+      <p class="ok" data-form-ok hidden>Your email app should open with the details filled in. If it doesn't, email us directly.</p>
+    </form>
+  </div>
+</section>
+</main>
+<footer><div class="wrap">
+  <img src="img/logo-wide-white.png" alt="CareLine Concierge">
+  <nav aria-label="Footer"><a href="#what">What we do</a><a href="#insight">Insight</a><a href="#videos">Videos</a><a href="#contact">Contact</a><a href="https://www.linkedin.com/company/careline-concierge/posts/" target="_blank" rel="noopener">LinkedIn</a></nav>
+  <span>© 2026 CareLine Concierge · One point of contact. 24/7 support. Real-time insight.</span>
+</div></footer>
+
+<script src="vendor/gsap.min.js"></script><script src="vendor/ScrollTrigger.min.js"></script><script src="js/us-dots.js"></script><script src="js/careline.js"></script>
+<script>
+  const ACTIVE_STATES = ['ny','nj','ct','pa','fl']; // placeholder list — confirm with Elisheva
+  const HQ = 'ny';
+  CL.boot();
+  CL.dotField(document.getElementById('field'), { color:'rgba(255,255,255,.55)', accent:'#FF5A61', count:1300, radius:0.47, dot:2.1, split:170 });
+  CL.caseFeed(document.getElementById('feed'));
+  CL.usMap(document.getElementById('map'), { activeStates:ACTIVE_STATES, hq:HQ, base:'#0F2A54', baseAlpha:.42, active:'#D21A22', dot:2.8 });
+  const chips = document.getElementById('stateChips');
+  if (chips && window.US_DOTS) chips.innerHTML = ACTIVE_STATES.map(s => `<span class="${s===HQ?'hq':''}">${US_DOTS.states[s].name}${s===HQ?' · HQ':''}</span>`).join('');
+  if (window.ScrollTrigger) ScrollTrigger.create({ trigger:'#bars', start:'top 85%', once:true, onEnter(){ document.getElementById('bars').classList.add('go'); } }); else document.getElementById('bars').classList.add('go');
+</script>
+</body>
+</html>
