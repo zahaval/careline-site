@@ -158,7 +158,8 @@
     o = Object.assign({
       base: '#0F2A54', baseAlpha: 0.34, active: '#D21A22', hq: 'ny',
       activeStates: ['ny'], soonStates: [], label: null, dot: 2.6,
-      onHover: null, legend: true, repel: 70
+      onHover: null, legend: true, repel: 70,
+      labels: { hq: 'Headquarters', active: 'Active', soon: 'Coming soon', none: 'Available on request' }
     }, o || {});
     const data = window.US_DOTS; if (!data) return;
     const canvas = root.querySelector('canvas') || root.appendChild(document.createElement('canvas'));
@@ -229,7 +230,7 @@
         if (label) {
           if (s) {
             const st = data.states[s];
-            const status = act.has(s) ? (s === o.hq ? 'Headquarters' : 'Active') : soon.has(s) ? 'Coming soon' : 'Available on request';
+            const L = o.labels; const status = act.has(s) ? (s === o.hq ? L.hq : L.active) : soon.has(s) ? L.soon : L.none;
             label.innerHTML = `<b>${st.name}</b><span>${status}</span>`;
             label.dataset.status = act.has(s) ? 'active' : soon.has(s) ? 'soon' : 'none';
             label.classList.add('is-on');

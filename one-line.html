@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>CareLine Concierge — Many voices. One line.</title>
+<title>CareLine Concierge — Care doesn't stop after hours. Neither do we.</title>
 <meta name="description" content="CareLine Concierge is the 24/7 resident and family concierge line for nursing homes. One point of contact from admission through discharge, with real-time insight for leadership.">
 <meta name="theme-color" content="#FFFFFF">
 <meta property="og:title" content="CareLine Concierge">
@@ -73,13 +73,15 @@ header.on{background:rgba(255,255,255,.86);backdrop-filter:blur(16px) saturate(1
 .menu a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1.5px;background:var(--red);transition:right .4s var(--ease)}.menu a:hover::after{right:0}
 .nav-r{display:flex;align-items:center;gap:20px}
 .tel{font-size:14px;font-weight:500;color:var(--mute);transition:color .3s}.tel:hover{color:var(--red)}
+.livepill{display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--mute)}.livepill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.8s infinite}
+@media(max-width:1180px){.livepill{display:none}}
 .nav .btn{min-height:42px;padding:10px 20px;font-size:14px}
 .burger{display:none;width:44px;height:44px;border:0;background:none;cursor:pointer;padding:10px}
 .burger span{display:block;height:2px;background:var(--ink);margin:6px 0;transition:transform .3s,opacity .3s}
 body.menu-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}body.menu-open .burger span:nth-child(2){opacity:0}body.menu-open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 .mpanel{display:none}
 @media(max-width:900px){
-  .menu,.tel,.nav .btn{display:none}.burger{display:block}
+  .menu,.tel,.livepill,.nav .btn{display:none}.burger{display:block}
   .mpanel{display:block;position:fixed;inset:66px 0 0 0;background:var(--paper);z-index:85;transform:translateY(-105%);transition:transform .5s var(--ease);padding:28px var(--gut)}
   .mpanel.open{transform:none}
   .mpanel a{display:block;font-family:var(--serif);font-size:38px;line-height:1.2;padding:8px 0;border-bottom:1px solid var(--ln)}
@@ -90,7 +92,7 @@ body.menu-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:104px var(--gut) 70px;overflow:hidden}
 .hero-stage{position:relative;width:min(640px,56vh,92vw);aspect-ratio:1;display:grid;place-items:center;margin:6px auto 0}
 .hero-stage canvas{position:absolute;inset:-6%;width:112%;height:112%;display:block;touch-action:pan-y}
-.hero .disp{position:relative;z-index:2;width:150%;font-size:clamp(58px,10.5vw,150px);pointer-events:none;color:var(--ink);text-shadow:0 0 14px #fff,0 0 28px #fff,0 0 6px #fff}
+.hero .disp{position:relative;z-index:2;width:150%;font-size:clamp(46px,8vw,112px);pointer-events:none;color:var(--ink);text-shadow:0 0 14px #fff,0 0 28px #fff,0 0 6px #fff}
 .hero .disp i{text-shadow:0 0 14px #fff,0 0 28px #fff,0 0 6px #fff}
 .hero-sub{margin:26px auto 0;max-width:58ch;position:relative;z-index:2}
 .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px;position:relative;z-index:2}
@@ -99,7 +101,14 @@ body.menu-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
 @media(max-width:700px){.hero{padding-top:100px}.hero-stage{width:min(440px,100vw)}.hero .disp{width:112%}.hero-foot{display:none}}
 
-/* ————— TRIAD ————— */
+/* ————— MOVING BANNER ————— */
+.strip{border-top:1px solid var(--ln);border-bottom:1px solid var(--ln);overflow:hidden;padding:20px 0;font-family:var(--serif);font-size:clamp(24px,2.6vw,36px);letter-spacing:-.01em;white-space:nowrap}
+.strip-in{display:inline-flex;gap:0;animation:tick 40s linear infinite;will-change:transform}
+.strip-in span{display:inline-flex;align-items:center;padding-right:64px}
+.strip-in i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--red);margin-left:64px}
+@media(prefers-reduced-motion:reduce){.strip-in{animation:none}}
+@keyframes tick{to{transform:translateX(-50%)}}
+/* ————— TRIAD (unused) ————— */
 .triad{border-top:1px solid var(--ln);border-bottom:1px solid var(--ln)}
 .triad .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
 .triad div{padding:28px 0;display:flex;align-items:baseline;gap:14px;font-family:var(--serif);font-size:clamp(22px,2.2vw,30px);letter-spacing:-.01em}
@@ -118,7 +127,7 @@ section{position:relative}
 /* mission */
 .mission{text-align:center}
 .mission .t2{font-size:clamp(40px,6.6vw,104px);line-height:.98;max-width:16ch;margin-inline:auto}
-.mission .lead{margin:40px auto 0;text-align:left;max-width:62ch;columns:1}
+.mission .lead{margin:40px auto 0;text-align:left;max-width:64ch}.mission .bio p+p{margin-top:1em}
 .mission .mark{width:74px;margin:0 auto 34px}
 
 /* what we do — editorial list */
@@ -220,6 +229,7 @@ section{position:relative}
 .direct a:last-child{border-bottom:1px solid var(--ln)}
 .direct a small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:600}
 .direct a:hover{color:var(--red)}
+.note{margin-top:18px;font-size:13.5px;color:var(--mute);display:flex;gap:10px;align-items:flex-start}.note::before{content:"";flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:var(--red);margin-top:7px}
 form{display:grid;gap:16px;grid-template-columns:1fr 1fr}
 .f{display:grid;gap:6px}.f.full{grid-column:1/-1}
 label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--mute)}
@@ -247,6 +257,7 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
       <a href="#what">What we do</a><a href="#how">How it works</a><a href="#insight">Insight</a><a href="#videos">Videos</a><a href="#where">Where we are</a>
     </nav>
     <div class="nav-r">
+      <span class="livepill">Line open · <span data-clock>—</span></span>
       <a class="tel" href="tel:+15165221649">(516) 522-1649</a>
       <a class="btn" href="#contact"><span>Book a walkthrough</span></a>
       <button class="burger" data-menu aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -263,31 +274,34 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
   <p class="eye">24/7 resident &amp; family concierge for nursing homes</p>
   <div class="hero-stage">
     <canvas id="field" aria-hidden="true"></canvas>
-    <h1 class="disp">Many voices.<br>One <i>line.</i></h1>
+    <h1 class="disp">Care doesn't stop<br>after hours.<br><i>Neither do we.</i></h1>
   </div>
   <p class="lead hero-sub">CareLine gives residents and their families <strong>one dedicated point of contact</strong> to call or text, any hour, from admission through discharge. Every concern is heard, documented, routed to the right team, and followed through.</p>
   <div class="hero-cta">
     <a class="btn" href="#contact"><span>Book a walkthrough</span><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
     <a class="btn ghost" href="#videos"><span class="play"><svg viewBox="0 0 10 10"><path d="M1 0l9 5-9 5z"/></svg></span><span>Watch the film · 2 min</span></a>
   </div>
-  <div class="hero-foot"><span class="live">Line open · <span data-clock>—</span></span><span>Headquartered in New York</span></div>
+  <div class="hero-foot"><span class="live">Line open · <span data-clock>—</span></span><span>24/7 · Call or text</span></div>
 </section>
 
 <!-- ════════ TRIAD ════════ -->
-<div class="triad"><div class="wrap">
-  <div><small>01</small>One point of contact</div>
-  <div><small>02</small>24/7 support</div>
-  <div><small>03</small>Real-time insight</div>
+<div class="strip" aria-label="One point of contact. 24/7 support. Real-time insight. Admission through discharge."><div class="strip-in" aria-hidden="true">
+  <span>One point of contact<i></i></span><span>24/7 support<i></i></span><span>Real-time insight<i></i></span><span>Admission through discharge<i></i></span>
+  <span>One point of contact<i></i></span><span>24/7 support<i></i></span><span>Real-time insight<i></i></span><span>Admission through discharge<i></i></span>
 </div></div>
 
 <!-- ════════ MISSION ════════ -->
 <section class="chapter mission" id="mission">
   <div class="wrap">
     <img class="mark" src="img/mark.png" alt="" data-rv>
-    <h2 class="t2" data-lines><span class="ln"><span>Let us handle</span></span><span class="ln"><span>the communication,</span></span><span class="ln"><span>while you earn <i>our trust.</i></span></span></h2>
-    <div class="lead" data-rv>
-      <p>CareLine Concierge is a 24/7 resident and family concierge service designed specifically for nursing homes. We provide dedicated support, communication, and assistance from admission through discharge: a real person families can reach for everyday requests and for the moments that can't wait.</p>
-      <p>And because every call and text becomes insight for the facility, leadership finally sees what residents and families are experiencing, in real time.</p>
+    <h2 class="t2" data-lines><span class="ln"><span>Let us handle</span></span><span class="ln"><span>the communication,</span></span><span class="ln"><span>while you earn <i>the trust.</i></span></span></h2>
+    <div class="lead bio" data-rv>
+      <p>CareLine Concierge is a 24/7 resident and family concierge service designed specifically for nursing homes, providing dedicated support, communication, and assistance from admission through discharge.</p>
+      <p>We provide residents and their families with a dedicated point of contact they can call or text for any need, from everyday requests to more complex or time-sensitive matters. We ensure each concern is heard, properly documented, communicated to the appropriate team, and followed through until it is addressed.</p>
+      <p>But CareLine Concierge is more than a communication service. Every call and text becomes valuable insight for the facility. Our platform gives nursing home owners, administrators, and leadership real-time visibility into what residents and families are experiencing, helping identify patterns, improve accountability, and strengthen the resident experience.</p>
+      <p>CareLine Concierge also supports the admission and discharge process, gathers resident and family feedback, and provides facilities with organized data and reporting they can use to make better operational decisions.</p>
+      <p>Just like care doesn't stop after hours, neither should communication.</p>
+      <p><strong>CareLine Concierge: One point of contact. 24/7 support. Real-time insight.</strong></p>
     </div>
   </div>
 </section>
@@ -379,9 +393,9 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
   <div class="wrap">
     <div data-rv>
       <p class="eye">Where we are</p>
-      <h2 class="t2">New York first. Then <i>everywhere.</i></h2>
-      <p class="lead" style="margin-top:22px">CareLine is headquartered on Long Island and works with facilities across the Northeast and beyond. Move across the map to see where we're active.</p>
-      <div class="legend"><span><i></i>Active</span><span><i class="b"></i>Available on request</span></div>
+      <h2 class="t2">Here now. <i>On our way</i> everywhere else.</h2>
+      <p class="lead" style="margin-top:22px">Move across the map to see where CareLine is active today, and where we're on our way.</p>
+      <div class="legend"><span><i></i>Active</span><span><i class="b"></i>We are on our way</span></div>
       <div class="states" id="stateChips"></div>
     </div>
     <div class="mapbox" id="map" data-rv><canvas aria-label="Map of the United States showing where CareLine Concierge is active" role="img"></canvas><div class="maplabel" data-map-label></div></div>
@@ -392,7 +406,7 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
 <section class="chapter quote" id="quote">
   <div class="wrap">
     <p class="eye plain" data-rv>Our promise</p>
-    <h2 class="t2" data-lines><span class="ln"><span>Care doesn't stop after hours.</span></span><span class="ln"><span><i>Neither does communication.</i></span></span></h2>
+    <h2 class="t2" data-lines><span class="ln"><span>Care doesn't stop after hours.</span></span><span class="ln"><span><i>Neither should communication.</i></span></span></h2>
   </div>
 </section>
 
@@ -407,6 +421,7 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
         <a href="tel:+15165221649"><small>Call or text</small><span>(516) 522-1649</span></a>
         <a href="mailto:ejotkowitz@carelineconcierge.com"><small>Email</small><span>ejotkowitz@carelineconcierge.com</span></a>
       </div>
+      <p class="note">You will never be asked to provide your credit card or bank information verbally.</p>
     </div>
     <form data-mailto="ejotkowitz@carelineconcierge.com" data-rv>
       <div class="f"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div>
@@ -441,10 +456,10 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
   CL.boot();
   CL.dotField(document.getElementById('field'), { color:'#0F2A54', accent:'#D21A22', count:1500, radius:0.47, dot:2.3, split:150 });
   CL.caseFeed(document.getElementById('feed'));
-  CL.usMap(document.getElementById('map'), { activeStates:ACTIVE_STATES, hq:HQ, base:'#0F2A54', baseAlpha:.42, active:'#D21A22', dot:2.8 });
+  CL.usMap(document.getElementById('map'), { activeStates:ACTIVE_STATES, hq:HQ, base:'#0F2A54', baseAlpha:.42, active:'#D21A22', dot:2.8, labels:{ hq:'Active', active:'Active', soon:'On our way', none:'We are on our way' } });
   // chips
   const chips = document.getElementById('stateChips');
-  if (chips && window.US_DOTS) chips.innerHTML = ACTIVE_STATES.map(s => `<span class="${s===HQ?'hq':''}">${US_DOTS.states[s].name}${s===HQ?' · HQ':''}</span>`).join('');
+  if (chips && window.US_DOTS) chips.innerHTML = ACTIVE_STATES.map(s => `<span>${US_DOTS.states[s].name}</span>`).join('');
   // bars animate on reveal
   if (window.ScrollTrigger) ScrollTrigger.create({ trigger:'#bars', start:'top 85%', once:true, onEnter(){ document.getElementById('bars').classList.add('go'); } }); else document.getElementById('bars').classList.add('go');
 </script>
