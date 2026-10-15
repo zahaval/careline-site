@@ -92,7 +92,7 @@ body.menu-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)
 .hero{position:relative;min-height:100svh;display:grid;align-items:center;padding:104px var(--gut) 70px;overflow:hidden}
 .hero-grid{max-width:var(--maxw);margin-inline:auto;width:100%;display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(28px,4vw,72px);align-items:center}
 .hero-l{text-align:center;display:flex;flex-direction:column;align-items:center}
-.hero-stage{position:relative;width:min(560px,52vh,100%);aspect-ratio:1;display:grid;place-items:center;margin:6px auto 0}
+.hero-stage{position:relative;width:min(560px,54vh,100%);aspect-ratio:1;display:grid;place-items:center;margin:0 auto}
 .hero-r{align-self:center}
 @media(max-width:1060px){.hero-grid{grid-template-columns:1fr}.hero-r{max-width:620px;width:100%;margin:36px auto 0}}
 .hero-stage canvas{position:absolute;inset:-6%;width:112%;height:112%;display:block;touch-action:pan-y}
@@ -262,7 +262,6 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
     </nav>
     <div class="nav-r">
       <span class="livepill">Line open · <span data-clock>—</span></span>
-      <a class="tel" href="tel:+15165221649">(516) 522-1649</a>
       <a class="btn" href="#contact"><span>Book a walkthrough</span></a>
       <button class="burger" data-menu aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
@@ -270,14 +269,13 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
 </header>
 <div class="mpanel" data-menu-panel>
     <a href="#what">What we do</a><a href="#insight">Insight</a><a href="#videos">Videos</a><a href="#where">Where we are</a>
-    <div class="mp-cta"><a href="#contact">Book a walkthrough →</a><a href="tel:+15165221649">(516) 522-1649</a></div>
+    <div class="mp-cta"><a href="#contact">Book a walkthrough →</a></div>
   </div>
 <main id="main">
 <!-- ════════ HERO ════════ -->
 <section class="hero" id="top">
   <div class="hero-grid">
     <div class="hero-l">
-      <p class="eye">24/7 resident &amp; family concierge for nursing homes</p>
       <div class="hero-stage">
         <canvas id="field" aria-hidden="true"></canvas>
         <h1 class="disp">Care doesn't stop<br>after hours.<br><i>Neither do we.</i></h1>
