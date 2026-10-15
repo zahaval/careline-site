@@ -89,17 +89,21 @@ body.menu-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)
 }
 
 /* ————— HERO ————— */
-.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:104px var(--gut) 70px;overflow:hidden}
-.hero-stage{position:relative;width:min(640px,56vh,92vw);aspect-ratio:1;display:grid;place-items:center;margin:6px auto 0}
+.hero{position:relative;min-height:100svh;display:grid;align-items:center;padding:104px var(--gut) 70px;overflow:hidden}
+.hero-grid{max-width:var(--maxw);margin-inline:auto;width:100%;display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(28px,4vw,72px);align-items:center}
+.hero-l{text-align:center;display:flex;flex-direction:column;align-items:center}
+.hero-stage{position:relative;width:min(560px,52vh,100%);aspect-ratio:1;display:grid;place-items:center;margin:6px auto 0}
+.hero-r{align-self:center}
+@media(max-width:1060px){.hero-grid{grid-template-columns:1fr}.hero-r{max-width:620px;width:100%;margin:36px auto 0}}
 .hero-stage canvas{position:absolute;inset:-6%;width:112%;height:112%;display:block;touch-action:pan-y}
-.hero .disp{position:relative;z-index:2;width:150%;font-size:clamp(46px,8vw,112px);pointer-events:none;color:var(--ink);text-shadow:0 0 14px #fff,0 0 28px #fff,0 0 6px #fff}
+.hero .disp{position:relative;z-index:2;width:150%;font-size:clamp(44px,6.2vw,92px);pointer-events:none;color:var(--ink);text-shadow:0 0 14px #fff,0 0 28px #fff,0 0 6px #fff}
 .hero .disp i{text-shadow:0 0 14px #fff,0 0 28px #fff,0 0 6px #fff}
 .hero-sub{margin:26px auto 0;max-width:58ch;position:relative;z-index:2}
 .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px;position:relative;z-index:2}
 .hero-foot{position:absolute;left:var(--gut);right:var(--gut);bottom:26px;display:flex;justify-content:space-between;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute-2);font-weight:600}
 .hero-foot .live{display:flex;align-items:center;gap:8px}.hero-foot .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.8s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-@media(max-width:700px){.hero{padding-top:100px}.hero-stage{width:min(440px,100vw)}.hero .disp{width:112%}.hero-foot{display:none}}
+@media(max-width:700px){.hero{padding-top:100px}.hero-stage{width:min(440px,100%)}.hero .disp{width:112%;font-size:clamp(44px,11vw,64px)}.hero-foot{display:none}}
 
 /* ————— MOVING BANNER ————— */
 .strip{border-top:1px solid var(--ln);border-bottom:1px solid var(--ln);overflow:hidden;padding:20px 0;font-family:var(--serif);font-size:clamp(24px,2.6vw,36px);letter-spacing:-.01em;white-space:nowrap}
@@ -142,7 +146,7 @@ section{position:relative}
 
 /* how it works — live feed */
 .how .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,100px);align-items:center}
-.feed{background:#fff;border:1px solid var(--ln);border-radius:20px;padding:26px 28px 24px;box-shadow:0 30px 60px -40px rgba(15,42,84,.35);position:relative}
+.feed{background:#fff;border:1px solid var(--ln);border-radius:20px;padding:24px 26px 22px;box-shadow:0 30px 60px -40px rgba(15,42,84,.35);position:relative;text-align:left}
 .feed-top{display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--mute)}
 .feed-top .live{display:flex;align-items:center;gap:8px;color:var(--red)}.feed-top .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.4s infinite}
 .feed-who{margin-top:22px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:14px;color:var(--mute)}
@@ -254,7 +258,7 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="CareLine Concierge home"><img src="img/logo-wide.png" alt="CareLine Concierge"></a>
     <nav class="menu" aria-label="Primary">
-      <a href="#what">What we do</a><a href="#how">How it works</a><a href="#insight">Insight</a><a href="#videos">Videos</a><a href="#where">Where we are</a>
+      <a href="#what">What we do</a><a href="#insight">Insight</a><a href="#videos">Videos</a><a href="#where">Where we are</a>
     </nav>
     <div class="nav-r">
       <span class="livepill">Line open · <span data-clock>—</span></span>
@@ -265,21 +269,34 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
   </div>
 </header>
 <div class="mpanel" data-menu-panel>
-    <a href="#what">What we do</a><a href="#how">How it works</a><a href="#insight">Insight</a><a href="#videos">Videos</a><a href="#where">Where we are</a>
+    <a href="#what">What we do</a><a href="#insight">Insight</a><a href="#videos">Videos</a><a href="#where">Where we are</a>
     <div class="mp-cta"><a href="#contact">Book a walkthrough →</a><a href="tel:+15165221649">(516) 522-1649</a></div>
   </div>
 <main id="main">
 <!-- ════════ HERO ════════ -->
 <section class="hero" id="top">
-  <p class="eye">24/7 resident &amp; family concierge for nursing homes</p>
-  <div class="hero-stage">
-    <canvas id="field" aria-hidden="true"></canvas>
-    <h1 class="disp">Care doesn't stop<br>after hours.<br><i>Neither do we.</i></h1>
-  </div>
-  <p class="lead hero-sub">CareLine gives residents and their families <strong>one dedicated point of contact</strong> to call or text, any hour, from admission through discharge. Every concern is heard, documented, routed to the right team, and followed through.</p>
-  <div class="hero-cta">
-    <a class="btn" href="#contact"><span>Book a walkthrough</span><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
-    <a class="btn ghost" href="#videos"><span class="play"><svg viewBox="0 0 10 10"><path d="M1 0l9 5-9 5z"/></svg></span><span>Watch the film · 2 min</span></a>
+  <div class="hero-grid">
+    <div class="hero-l">
+      <p class="eye">24/7 resident &amp; family concierge for nursing homes</p>
+      <div class="hero-stage">
+        <canvas id="field" aria-hidden="true"></canvas>
+        <h1 class="disp">Care doesn't stop<br>after hours.<br><i>Neither do we.</i></h1>
+      </div>
+      <p class="lead hero-sub">CareLine gives residents and their families <strong>one dedicated point of contact</strong> to call or text, any hour, from admission through discharge. Every concern is heard, documented, routed to the right team, and followed through.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#contact"><span>Book a walkthrough</span><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        <a class="btn ghost" href="#videos"><span class="play"><svg viewBox="0 0 10 10"><path d="M1 0l9 5-9 5z"/></svg></span><span>Watch the film · 2 min</span></a>
+      </div>
+    </div>
+    <div class="hero-r">
+      <div class="feed" id="feed" aria-live="polite">
+        <div class="feed-top"><span class="live">Live line</span><span data-feed-index>Case 1 of 4</span></div>
+        <div class="feed-who"><div><b data-feed-from>Daughter of resident, Rm 212</b><br><span data-feed-via>Text</span> · to CareLine</div><div class="feed-clock" data-feed-clock>2:14 AM</div></div>
+        <div class="bubble" data-feed-msg></div>
+        <ol class="steps" data-feed-steps></ol>
+        <div class="feed-foot"><span>Sample case, details changed for privacy</span><b data-feed-elapsed>Resolved in 17 minutes</b></div>
+      </div>
+    </div>
   </div>
   <div class="hero-foot"><span class="live">Line open · <span data-clock>—</span></span><span>24/7 · Call or text</span></div>
 </section>
@@ -320,25 +337,6 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
       <li><div><h3 class="t4">Routed and followed through</h3><p>We send each matter to the right team and stay on it until it's addressed, then close the loop with the family.</p></div></li>
       <li><div><h3 class="t4">Admission through discharge</h3><p>We support both ends of the stay, gather resident and family feedback, and hand leadership organized reporting they can act on.</p></div></li>
     </ol>
-  </div>
-</section>
-
-<!-- ════════ HOW IT WORKS ════════ -->
-<section class="chapter how" id="how">
-  <div class="wrap">
-    <div data-rv>
-      <p class="eye">How a concern moves</p>
-      <h2 class="t2">From a 2 AM text to <i>resolved.</i></h2>
-      <p class="lead" style="margin-top:22px">Watch a concern travel through CareLine. The family gets a human answer in seconds. Your team gets a clean, documented request. Leadership gets a record of what happened and how fast.</p>
-      <div class="pipeline"><span>Received</span><span>Documented</span><span>Routed</span><span>In progress</span><span>Resolved</span></div>
-    </div>
-    <div class="feed" id="feed" data-rv aria-live="polite">
-      <div class="feed-top"><span class="live">Live line</span><span data-feed-index>Case 1 of 4</span></div>
-      <div class="feed-who"><div><b data-feed-from>Daughter of resident, Rm 212</b><br><span data-feed-via>Text</span> · to CareLine</div><div class="feed-clock" data-feed-clock>2:14 AM</div></div>
-      <div class="bubble" data-feed-msg></div>
-      <ol class="steps" data-feed-steps></ol>
-      <div class="feed-foot"><span>Sample case, details changed for privacy</span><b data-feed-elapsed>Resolved in 17 minutes</b></div>
-    </div>
   </div>
 </section>
 
@@ -439,7 +437,7 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
 <footer>
   <div class="wrap">
     <img src="img/logo-wide.png" alt="CareLine Concierge">
-    <nav aria-label="Footer"><a href="#what">What we do</a><a href="#how">How it works</a><a href="#videos">Videos</a><a href="#contact">Contact</a><a href="https://www.linkedin.com/company/careline-concierge/posts/" target="_blank" rel="noopener">LinkedIn</a></nav>
+    <nav aria-label="Footer"><a href="#what">What we do</a><a href="#videos">Videos</a><a href="#contact">Contact</a><a href="https://www.linkedin.com/company/careline-concierge/posts/" target="_blank" rel="noopener">LinkedIn</a></nav>
     <span>© 2026 CareLine Concierge · One point of contact. 24/7 support. Real-time insight.</span>
   </div>
 </footer>
