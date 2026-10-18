@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="img/mark.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap">
 <style>
 /* ═══════════════════════════════════════════════════════════
    CARELINE — version A "One line"
@@ -66,8 +66,8 @@ i,em.acc{font-family:var(--serif);font-style:italic}
 /* nav */
 header{position:fixed;inset:0 0 auto 0;z-index:90;transition:background .4s var(--ease),box-shadow .4s}
 header.on{background:rgba(255,255,255,.86);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);box-shadow:0 1px 0 var(--ln)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:84px;transition:height .4s var(--ease)}header.on .nav{height:66px}
-.brand img{height:36px;width:auto}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:92px;transition:height .4s var(--ease)}header.on .nav{height:74px}header.on .brand img{height:44px}.brand img{transition:height .4s var(--ease)}
+.brand img{height:52px;width:auto}
 .menu{display:flex;gap:clamp(18px,2.4vw,34px)}
 .menu a{font-size:14px;font-weight:500;color:var(--ink);position:relative;padding:6px 0}
 .menu a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1.5px;background:var(--red);transition:right .4s var(--ease)}.menu a:hover::after{right:0}
@@ -75,7 +75,7 @@ header.on{background:rgba(255,255,255,.86);backdrop-filter:blur(16px) saturate(1
 .tel{font-size:14px;font-weight:500;color:var(--mute);transition:color .3s}.tel:hover{color:var(--red)}
 .livepill{display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--mute)}.livepill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.8s infinite}
 @media(max-width:1180px){.livepill{display:none}}
-.nav .btn{min-height:42px;padding:10px 20px;font-size:14px}
+.nav .btn{min-height:42px;padding:10px 20px;font-size:14px}.nav-r{gap:10px}
 .burger{display:none;width:44px;height:44px;border:0;background:none;cursor:pointer;padding:10px}
 .burger span{display:block;height:2px;background:var(--ink);margin:6px 0;transition:transform .3s,opacity .3s}
 body.menu-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}body.menu-open .burger span:nth-child(2){opacity:0}body.menu-open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
@@ -91,19 +91,16 @@ body.menu-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)
 /* ————— HERO ————— */
 .hero{position:relative;min-height:100svh;display:grid;align-items:center;padding:104px var(--gut) 70px;overflow:hidden}
 .hero-grid{max-width:var(--maxw);margin-inline:auto;width:100%;display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(28px,4vw,72px);align-items:center}
-.hero-l{text-align:center;display:flex;flex-direction:column;align-items:center}
-.hero-stage{position:relative;width:min(560px,54vh,100%);aspect-ratio:1;display:grid;place-items:center;margin:0 auto}
+.hero-l{text-align:left;display:flex;flex-direction:column;align-items:flex-start}
 .hero-r{align-self:center}
 @media(max-width:1060px){.hero-grid{grid-template-columns:1fr}.hero-r{max-width:620px;width:100%;margin:36px auto 0}}
-.hero-stage canvas{position:absolute;inset:-6%;width:112%;height:112%;display:block;touch-action:pan-y}
-.hero .disp{position:relative;z-index:2;width:150%;font-size:clamp(44px,6.2vw,92px);pointer-events:none;color:var(--ink);text-shadow:0 0 14px #fff,0 0 28px #fff,0 0 6px #fff}
-.hero .disp i{text-shadow:0 0 14px #fff,0 0 28px #fff,0 0 6px #fff}
+.hero .disp{font-size:clamp(52px,7.2vw,116px);color:var(--ink);line-height:.95}
 .hero-sub{margin:26px auto 0;max-width:58ch;position:relative;z-index:2}
-.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px;position:relative;z-index:2}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
 .hero-foot{position:absolute;left:var(--gut);right:var(--gut);bottom:26px;display:flex;justify-content:space-between;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute-2);font-weight:600}
 .hero-foot .live{display:flex;align-items:center;gap:8px}.hero-foot .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.8s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-@media(max-width:700px){.hero{padding-top:100px}.hero-stage{width:min(440px,100%)}.hero .disp{width:112%;font-size:clamp(44px,11vw,64px)}.hero-foot{display:none}}
+@media(max-width:700px){.hero{padding-top:110px}.hero .disp{font-size:clamp(44px,12vw,68px)}}
 
 /* ————— MOVING BANNER ————— */
 .strip{border-top:1px solid var(--ln);border-bottom:1px solid var(--ln);overflow:hidden;padding:20px 0;font-family:var(--serif);font-size:clamp(24px,2.6vw,36px);letter-spacing:-.01em;white-space:nowrap}
@@ -131,8 +128,14 @@ section{position:relative}
 /* mission */
 .mission{text-align:center}
 .mission .t2{font-size:clamp(40px,6.6vw,104px);line-height:.98;max-width:16ch;margin-inline:auto}
+.mission .mh{font-family:"Newsreader",Georgia,serif;font-weight:300;font-variation-settings:"opsz" 72;letter-spacing:-.015em;line-height:1.02}
+.mission .mh b{font-weight:600;color:var(--red)}
+.mission .mh .ln>span{transform:translateY(112%);transition:transform 1s cubic-bezier(.2,.7,.15,1)}
+.mission .mh .ln:nth-child(2)>span{transition-delay:.08s}.mission .mh .ln:nth-child(3)>span{transition-delay:.16s}
+.mission .mh.is-in .ln>span{transform:none}
+@media(prefers-reduced-motion:reduce){.mission .mh .ln>span{transform:none;transition:none}}
 .mission .lead{margin:40px auto 0;text-align:left;max-width:64ch}.mission .bio p+p{margin-top:1em}
-.mission .mark{width:74px;margin:0 auto 34px}
+.mission .mark{width:104px;margin:0 auto 34px}
 
 /* what we do — editorial list */
 .what .wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(32px,6vw,110px)}
@@ -249,7 +252,10 @@ form .btn{grid-column:1/-1;justify-self:start}
 footer{border-top:1px solid var(--ln);padding:40px 0 34px;font-size:13.5px;color:var(--mute)}
 footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 footer img{height:30px}
-footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
+footer a:hover{color:var(--red)}
+footer .hipaa{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ln);border-radius:999px;padding:8px 14px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--ink)}footer .hipaa svg{width:16px;height:16px;color:var(--red)}
+footer .li{display:inline-flex;align-items:center;gap:8px;font-weight:500;color:var(--ink)}footer .li svg{width:18px;height:18px}
+footer .sms{margin-top:28px;padding-top:22px;border-top:1px solid var(--ln);font-size:12.5px;line-height:1.6;color:var(--mute-2);display:block}footer .sms p{max-width:90ch}footer .sms p+p{margin-top:10px}
 </style>
 </head>
 <body>
@@ -258,30 +264,26 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="CareLine Concierge home"><img src="img/logo-wide.png" alt="CareLine Concierge"></a>
     <nav class="menu" aria-label="Primary">
-      <a href="#what">What we do</a><a href="#insight">Insight</a><a href="#videos">Videos</a><a href="#where">Where we are</a>
+      <a href="#bio">Bio</a><a href="#what">What we do</a><a href="#insight">Data</a><a href="#videos">Videos</a><a href="#where">Where we are</a>
     </nav>
     <div class="nav-r">
-      <a class="btn" href="#contact"><span>Book a walkthrough</span></a>
+      <a class="btn" href="https://calendly.com/carelineconcierge" target="_blank" rel="noopener" data-calendly><span>Book a demo</span></a>
+      <a class="btn ghost" href="https://portal.carelineconcierge.com/login" target="_blank" rel="noopener"><span>Portal login</span></a>
       <button class="burger" data-menu aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 <div class="mpanel" data-menu-panel>
-    <a href="#what">What we do</a><a href="#insight">Insight</a><a href="#videos">Videos</a><a href="#where">Where we are</a>
-    <div class="mp-cta"><a href="#contact">Book a walkthrough →</a></div>
+    <a href="#bio">Bio</a><a href="#what">What we do</a><a href="#insight">Data</a><a href="#videos">Videos</a><a href="#where">Where we are</a>
+    <div class="mp-cta"><a href="https://calendly.com/carelineconcierge" target="_blank" rel="noopener" data-calendly>Book a demo →</a><a href="https://portal.carelineconcierge.com/login" target="_blank" rel="noopener">Portal login →</a></div>
   </div>
 <main id="main">
 <!-- ════════ HERO ════════ -->
 <section class="hero" id="top">
   <div class="hero-grid">
     <div class="hero-l">
-      <div class="hero-stage">
-        <canvas id="field" aria-hidden="true"></canvas>
-        <h1 class="disp">Care doesn't stop<br>after hours.<br><i>Neither do we.</i></h1>
-      </div>
-      <p class="lead hero-sub">CareLine gives residents and their families <strong>one dedicated point of contact</strong> to call or text, any hour, from admission through discharge. Every concern is heard, documented, routed to the right team, and followed through.</p>
+      <h1 class="disp">Care doesn't stop<br>after hours.<br><i>Neither do we.</i></h1>
       <div class="hero-cta">
-        <a class="btn" href="#contact"><span>Book a walkthrough</span><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
         <a class="btn ghost" href="#videos"><span class="play"><svg viewBox="0 0 10 10"><path d="M1 0l9 5-9 5z"/></svg></span><span>Watch the film · 2 min</span></a>
       </div>
     </div>
@@ -298,16 +300,16 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
 </section>
 
 <!-- ════════ TRIAD ════════ -->
-<div class="strip" aria-label="One point of contact. 24/7 support. Real-time insight. Admission through discharge."><div class="strip-in" aria-hidden="true">
-  <span>One point of contact<i></i></span><span>24/7 support<i></i></span><span>Real-time insight<i></i></span><span>Admission through discharge<i></i></span>
-  <span>One point of contact<i></i></span><span>24/7 support<i></i></span><span>Real-time insight<i></i></span><span>Admission through discharge<i></i></span>
+<div class="strip" aria-label="One point of contact. 24/7 concierge. Real-time data. Admission through Discharge."><div class="strip-in" aria-hidden="true">
+  <span>One point of contact<i></i></span><span>24/7 concierge<i></i></span><span>Real-time data<i></i></span><span>Admission through Discharge<i></i></span>
+  <span>One point of contact<i></i></span><span>24/7 concierge<i></i></span><span>Real-time data<i></i></span><span>Admission through Discharge<i></i></span>
 </div></div>
 
 <!-- ════════ MISSION ════════ -->
-<section class="chapter mission" id="mission">
+<section class="chapter mission" id="bio">
   <div class="wrap">
     <img class="mark" src="img/mark.png" alt="" data-rv>
-    <h2 class="t2" data-lines><span class="ln"><span>Let us handle</span></span><span class="ln"><span>the communication,</span></span><span class="ln"><span>while you earn <i>the trust.</i></span></span></h2>
+    <h2 class="t2 mh" id="mh"><span class="ln"><span>Let us handle</span></span><span class="ln"><span>the communication,</span></span><span class="ln"><span>while <b>you earn the trust.</b></span></span></h2>
     <div class="lead bio" data-rv>
       <p>CareLine Concierge is a 24/7 resident and family concierge service designed specifically for nursing homes, providing dedicated support, communication, and assistance from admission through discharge.</p>
       <p>We provide residents and their families with a dedicated point of contact they can call or text for any need, from everyday requests to more complex or time-sensitive matters. We ensure each concern is heard, properly documented, communicated to the appropriate team, and followed through until it is addressed.</p>
@@ -325,13 +327,13 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
     <div class="sticky" data-rv>
       <p class="eye">What we do</p>
       <h2 class="t2">More than a <i>phone line.</i></h2>
-      <p class="lead" style="margin-top:22px">Residents and families get a single number to call or text. Your teams get concerns that arrive documented, routed, and tracked to resolution.</p>
+      <p class="lead" style="margin-top:22px">CareLine Concierge provides an extra layer of support and communication while equipping owners and operators with valuable insights and data to identify opportunities for improvement, enhance resident satisfaction, and elevate the overall experience within their facilities.</p>
     </div>
     <ol data-rv data-rv-stagger>
       <li><div><h3 class="t4">One number, any hour</h3><p>Residents and families reach a real person, day or night, for everyday requests and time-sensitive matters alike.</p></div></li>
-      <li><div><h3 class="t4">Heard, then documented</h3><p>Every concern is captured in full and logged to the resident's record, so nothing lives in a hallway conversation.</p></div></li>
-      <li><div><h3 class="t4">Routed and followed through</h3><p>We send each matter to the right team and stay on it until it's addressed, then close the loop with the family.</p></div></li>
-      <li><div><h3 class="t4">Admission through discharge</h3><p>We support both ends of the stay, gather resident and family feedback, and hand leadership organized reporting they can act on.</p></div></li>
+      <li><div><h3 class="t4">Any concern, any department</h3><p>Every interaction is documented, routed, and followed through.</p></div></li>
+      <li><div><h3 class="t4">Admission through Discharge</h3><p>We support the entire resident journey from their first impression until their last.</p></div></li>
+      <li><div><h3 class="t4">Data at your fingertips</h3><p>Our portal provides access to real-time insight, allowing you to use that data to drive improvements.</p></div></li>
     </ol>
   </div>
 </section>
@@ -340,26 +342,23 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
 <section class="chapter on-ink insight" id="insight">
   <div class="wrap">
     <div data-rv>
-      <p class="eye">Real-time insight</p>
-      <h2 class="t2">Every call becomes <i>insight.</i></h2>
-      <p class="lead" style="margin-top:22px">Owners, administrators, and leadership get real-time visibility into what residents and families are experiencing: patterns by unit and category, response times, and accountability you can show a surveyor, a board, or a family.</p>
-      <p class="lead" style="margin-top:14px">Organized data. Clear reporting. Better operational decisions.</p>
+      <p class="eye">Real-time data</p>
+      <h2 class="t2">Every call becomes <i>data.</i></h2>
+      <p class="lead" style="margin-top:22px">Owners, administrators, and operators get real-time visibility into resident and family experience, with actionable insights into department trends, response times, and accountability. With this data, leadership can make smarter, more informed decisions, implement meaningful improvements, and enhance the overall quality of care and resident satisfaction across their facilities.</p>
     </div>
     <div class="dash" data-rv data-rv-stagger>
-      <div class="card"><div class="k">First response</div><div class="v">4<small>min avg</small></div></div>
-      <div class="card"><div class="k">Followed through</div><div class="v">100<small>% of concerns</small></div></div>
-      <div class="card wide"><div class="k"><span>Concerns by category</span><span>This week</span></div>
+      <div class="card"><div class="k">Resolved this month</div><div class="v">65</div></div>
+      <div class="card"><div class="k">Successfully resolved</div><div class="v">98<small>%</small></div></div>
+      <div class="card wide"><div class="k"><span>Concerns by department</span><span>This month</span></div>
         <div class="bars" id="bars">
-          <div class="bar"><span>Nursing response</span><i style="--w:76%"></i><b>38</b></div>
-          <div class="bar"><span>Dietary</span><i style="--w:42%"></i><b>21</b></div>
-          <div class="bar"><span>Housekeeping</span><i style="--w:28%"></i><b>14</b></div>
-          <div class="bar"><span>Discharge planning</span><i style="--w:22%"></i><b>11</b></div>
-          <div class="bar"><span>Billing &amp; admissions</span><i style="--w:18%"></i><b>9</b></div>
+          <div class="bar"><span>Nursing</span><i style="--w:100%"></i><b>22</b></div>
+          <div class="bar"><span>Social work</span><i style="--w:73%"></i><b>16</b></div>
+          <div class="bar"><span>Housekeeping</span><i style="--w:55%"></i><b>12</b></div>
+          <div class="bar"><span>Dietary</span><i style="--w:41%"></i><b>9</b></div>
+          <div class="bar"><span>Billing</span><i style="--w:27%"></i><b>6</b></div>
         </div>
       </div>
-      <div class="card"><div class="k">Family check-ins</div><div class="v">212<small>this month</small></div></div>
-      <div class="card"><div class="k">After-hours contacts</div><div class="v">31<small>% of volume</small></div></div>
-      <div class="sample">Sample data for illustration</div>
+      <div class="card wide"><div class="k">Customer satisfaction</div><div class="v">99<small>%</small></div></div>
     </div>
   </div>
 </section>
@@ -376,7 +375,7 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
         <button type="button"><span class="vk">For residents &amp; families</span><span class="vt">Someone always <i>picks up.</i></span><span class="vp"><span class="play"><svg viewBox="0 0 10 10"><path d="M1 0l9 5-9 5z"/></svg></span>Resident perspective · 2:05</span></button>
       </div>
       <div class="vid" data-vimeo="1224449881" data-title="The owner and administrator perspective">
-        <button type="button"><span class="vk">For owners &amp; administrators</span><span class="vt">Finally, you can <i>see it.</i></span><span class="vp"><span class="play"><svg viewBox="0 0 10 10"><path d="M1 0l9 5-9 5z"/></svg></span>Administrator perspective · 2:15</span></button>
+        <button type="button"><span class="vk">For owners, operators &amp; administrators</span><span class="vt">Finally, you can <i>see it.</i></span><span class="vp"><span class="play"><svg viewBox="0 0 10 10"><path d="M1 0l9 5-9 5z"/></svg></span>Administrator perspective · 2:15</span></button>
       </div>
     </div>
   </div>
@@ -397,7 +396,7 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
 </section>
 
 <!-- ════════ QUOTE ════════ -->
-<section class="chapter quote" id="quote">
+<section class="chapter quote" id="quote" style="padding-block:clamp(48px,6vw,88px)">
   <div class="wrap">
     <p class="eye plain" data-rv>Our promise</p>
     <h2 class="t2" data-lines><span class="ln"><span>Care doesn't stop after hours.</span></span><span class="ln"><span><i>Neither should communication.</i></span></span></h2>
@@ -410,11 +409,8 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
     <div data-rv>
       <p class="eye">Bring CareLine to your facility</p>
       <h2 class="t2">Let's talk about <i>your building.</i></h2>
-      <p class="lead" style="margin-top:22px">A 20-minute walkthrough of the line and the reporting your leadership team would see.</p>
-      <div class="direct">
-        <a href="tel:+15165221649"><small>Call or text</small><span>(516) 522-1649</span></a>
-        <a href="mailto:ejotkowitz@carelineconcierge.com"><small>Email</small><span>ejotkowitz@carelineconcierge.com</span></a>
-      </div>
+      <p class="lead" style="margin-top:22px">A 20-minute demo of the line and the data your leadership team would see.</p>
+      <div class="hero-cta" style="margin-top:30px"><a class="btn" href="https://calendly.com/carelineconcierge" target="_blank" rel="noopener" data-calendly><span>Book a demo</span><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a></div>
       <p class="note">You will never be asked to provide your credit card or bank information verbally.</p>
     </div>
     <form data-mailto="ejotkowitz@carelineconcierge.com" data-rv>
@@ -423,7 +419,7 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
       <div class="f"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
       <div class="f"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
       <div class="f full"><label for="message">What would you like to solve?</label><textarea id="message" name="message"></textarea></div>
-      <button class="btn" type="submit"><span>Request a walkthrough</span></button>
+      <button class="btn" type="submit"><span>Request a demo</span></button>
       <p class="ok" data-form-ok hidden>Your email app should open with the details filled in. If it doesn't, email us directly.</p>
     </form>
   </div>
@@ -433,8 +429,12 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
 <footer>
   <div class="wrap">
     <img src="img/logo-wide.png" alt="CareLine Concierge">
-    <nav aria-label="Footer"><a href="#what">What we do</a><a href="#videos">Videos</a><a href="#contact">Contact</a><a href="https://www.linkedin.com/company/carelineconcierge/" target="_blank" rel="noopener">LinkedIn</a></nav>
-    <span>© 2026 CareLine Concierge · One point of contact. 24/7 support. Real-time insight.</span>
+    <span class="hipaa"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l5 2v4c0 3.2-2.1 5.6-5 7-2.9-1.4-5-3.8-5-7v-4l5-2z" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5.6 8.1l1.7 1.7 3.2-3.4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>HIPAA compliant</span>
+    <a class="li" href="https://www.linkedin.com/company/carelineconcierge/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+  </div>
+  <div class="wrap sms">
+    <p>By calling or texting CareLine Concierge, you agree to receive text messages from CareLine Concierge related to your request. Message frequency varies. Message and data rates may apply. Reply STOP to opt out at any time, or HELP for help. Mobile information will not be shared with third parties for marketing or promotional purposes.</p>
+    <p>© 2026 CareLine Concierge · One point of contact. 24/7 concierge. Real-time data.</p>
   </div>
 </footer>
 
@@ -444,11 +444,13 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--red)}
 <script src="js/careline.js"></script>
 <script>
   // ── edit these to light up states ──
-  const ACTIVE_STATES = ['ny','nj','ct','pa','fl'];   // placeholder list — confirm with Elisheva
+  const ACTIVE_STATES = ['ny','nj','pa','oh','co','ne','ia','ct','al','il'];
   const HQ = 'ny';
 
   CL.boot();
-  CL.dotField(document.getElementById('field'), { color:'#0F2A54', accent:'#D21A22', count:1500, radius:0.47, dot:2.3, split:150 });
+  // Mission statement: slides in when you reach it, slides away when you leave, and comes back every time
+  (function(){ const h=document.getElementById('mh'); if(!h) return;
+    new IntersectionObserver(en => en.forEach(e => h.classList.toggle('is-in', e.isIntersecting)), { threshold:.35 }).observe(h); })();
   CL.caseFeed(document.getElementById('feed'));
   CL.usMap(document.getElementById('map'), { activeStates:ACTIVE_STATES, hq:HQ, base:'#0F2A54', baseAlpha:.42, active:'#D21A22', dot:2.8, labels:{ hq:'Active', active:'Active', soon:'On our way', none:'We are on our way' } });
   // chips

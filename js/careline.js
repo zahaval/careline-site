@@ -376,7 +376,7 @@
     f.addEventListener('submit', e => {
       e.preventDefault();
       const d = new FormData(f); const to = f.dataset.mailto;
-      const subj = encodeURIComponent(`CareLine walkthrough — ${d.get('facility') || d.get('name') || ''}`);
+      const subj = encodeURIComponent(`CareLine demo — ${d.get('facility') || d.get('name') || ''}`);
       const body = encodeURIComponent([`Name: ${d.get('name') || ''}`, `Facility: ${d.get('facility') || ''}`, `Email: ${d.get('email') || ''}`, `Phone: ${d.get('phone') || ''}`, '', d.get('message') || ''].join('\n'));
       window.location.href = `mailto:${to}?subject=${subj}&body=${body}`;
       const ok = f.querySelector('[data-form-ok]'); if (ok) ok.hidden = false;
