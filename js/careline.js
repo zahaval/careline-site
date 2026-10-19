@@ -264,14 +264,14 @@
        [data-feed-index]      "case 1 of 4"
   ===================================================================== */
   CL.CASES = [
-    { time: '10:10 AM', from: 'Resident, Rm 118', via: 'Call', msg: "I am a resident at the facility and I did not receive my breakfast yet and it's almost 10:15 am.",
-      steps: [['Received', 'Call answered by CareLine'], ['Documented', 'Concern logged and the delay noted'], ['Routed', 'Dietary department notified'], ['In progress', 'Dietary is sending an alternative meal to her room immediately'], ['Resolved', 'Breakfast delivered 10 minutes later. She was thankful for the quick response.']], elapsed: 'Resolved in 10 minutes' },
-    { time: '4:05 PM', from: 'Daughter of resident, Rm 201', via: 'Text', msg: "I'm reaching out to confirm that transportation has been arranged for my dad's appointment tomorrow and that someone will be available to accompany him.",
-      steps: [['Received', 'Text answered by CareLine'], ['Documented', 'Request recorded and the appointment time confirmed'], ['Routed', 'Transportation coordinator contacted for assistance'], ['In progress', 'Transportation verified; staff to accompany him being coordinated'], ['Resolved', '30 minutes later, daughter updated by phone that all logistics are finalized and her father will be well cared for']], elapsed: 'Resolved in 30 minutes' },
-    { time: '9:30 PM', from: 'Wife of resident, Rm 121', via: 'Call', msg: "My husband called to tell me that they don't have his medications in stock and they're not giving him an alternative.",
-      steps: [['Received', 'Call answered by CareLine'], ['Documented', 'Medication concern documented'], ['Routed', 'Escalated directly to the Nurse Supervisor on call'], ['In progress', 'RN Supervisor is on the unit and speaking with the doctor about an alternative now'], ['Resolved', 'Supervisor called the wife to confirm an alternative medication was given. Her husband is very happy.']], elapsed: 'Resolved the same evening' },
-    { time: '2:30 AM', from: 'Son of resident, Rm 211', via: 'Text', msg: "My mom says she has been pressing her call bell for approximately 30 minutes requesting assistance with using the restroom, but no one has come to help her.",
-      steps: [['Received', 'Text answered by CareLine'], ['Documented', 'Wait time and lack of response recorded for visibility and accountability'], ['Routed', 'Nurse Supervisor on call contacted directly'], ['In progress', 'Nursing staff directed to provide prompt attention and assistance'], ['Resolved', 'The resident called her son back: she received immediate help, and CareLine made all the difference.']], elapsed: 'Resolved within minutes' }
+    { time: '10:10 AM', from: 'Resident, Room 118', via: 'Call', msg: "I am a resident at the facility and I did not receive my breakfast yet and it's almost 10:15 am.",
+      steps: [['Received', 'Call answered by CareLine'], ['Documented', 'Concern logged and the delay noted'], ['Routed', 'Dietary department notified'], ['In Progress', 'Dietary is sending an alternative meal to her room immediately'], ['Resolved', 'Breakfast delivered 10 minutes later. She was thankful for the quick response.']], elapsed: 'Resolved in 10 minutes' },
+    { time: '4:05 PM', from: 'Daughter of resident, Room 201', via: 'Text', msg: "I'm reaching out to confirm that transportation has been arranged for my dad's appointment tomorrow and that someone will be available to accompany him.",
+      steps: [['Received', 'Text answered by CareLine'], ['Documented', 'Request recorded and the appointment time confirmed'], ['Routed', 'Transportation coordinator contacted for assistance'], ['In Progress', 'Transportation verified; staff to accompany him being coordinated'], ['Resolved', '30 minutes later, daughter updated by phone that all logistics are finalized and her father will be well cared for']], elapsed: 'Resolved in 30 minutes' },
+    { time: '9:30 PM', from: 'Wife of resident, Room 121', via: 'Call', msg: "My husband called to tell me that they don't have his medications in stock and they're not giving him an alternative.",
+      steps: [['Received', 'Call answered by CareLine'], ['Documented', 'Medication concern documented'], ['Routed', 'Escalated directly to the Nurse Supervisor on call'], ['In Progress', 'RN Supervisor is on the unit and speaking with the doctor about an alternative now'], ['Resolved', 'Supervisor called the wife to confirm an alternative medication was given. Her husband is very happy.']], elapsed: 'Resolved the same evening' },
+    { time: '2:30 AM', from: 'Son of resident, Room 211', via: 'Text', msg: "My mom says she has been pressing her call bell for approximately 30 minutes requesting assistance with using the restroom, but no one has come to help her.",
+      steps: [['Received', 'Text answered by CareLine'], ['Documented', 'Wait time and lack of response recorded for visibility and accountability'], ['Routed', 'Nurse Supervisor on call contacted directly'], ['In Progress', 'Nursing staff directed to provide prompt attention and assistance'], ['Resolved', 'The resident called her son back: she received immediate help, and CareLine made all the difference.']], elapsed: 'Resolved within minutes' }
   ];
 
   CL.caseFeed = function (root, o) {
@@ -289,7 +289,7 @@
       if (elapsed) { elapsed.textContent = c.elapsed; elapsed.style.opacity = 0; }
       if (msg) msg.textContent = '';
       if (steps) {
-        steps.innerHTML = c.steps.map((s, k) => `<li class="fs" data-k="${k}"><span class="fs-dot"></span><span class="fs-t"><b>${s[0]}</b><em>${s[1]}</em></span></li>`).join('');
+        steps.innerHTML = c.steps.map((s, k) => `<li class="fs" data-k="${k}"><span class="fs-dot"></span><span class="fs-t"><b>${s[0]}:</b><em>${s[1]}</em></span></li>`).join('');
       }
     }
 
@@ -298,12 +298,12 @@
       const c = o.cases[i]; render(c);
       const items = steps ? [...steps.querySelectorAll('.fs')] : [];
       if (RM || !hasGsap) {
-        if (msg) msg.textContent = c.msg; items.forEach(el => el.classList.add('is-done')); if (elapsed) elapsed.style.opacity = 1;
+        if (msg) msg.textContent = '\u201C' + c.msg + '\u201D'; items.forEach(el => el.classList.add('is-done')); if (elapsed) elapsed.style.opacity = 1;
         timer = setTimeout(() => { i = (i + 1) % o.cases.length; play(); }, 6000); return;
       }
       const tl = gsap.timeline({ onComplete() { i = (i + 1) % o.cases.length; play(); } });
       // type the message
-      const text = c.msg; const n = text.length; const prox = { k: 0 };
+      const text = '\u201C' + c.msg + '\u201D'; const n = text.length; const prox = { k: 0 };
       tl.to(prox, { k: n, duration: n * o.typeSpeed, ease: 'none', onUpdate() { msg.textContent = text.slice(0, Math.round(prox.k)); } });
       tl.to({}, { duration: 0.5 });
       items.forEach((el, k) => {
