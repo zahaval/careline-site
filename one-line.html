@@ -82,8 +82,8 @@ body.menu-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)
 .mpanel{display:none}
 @media(max-width:900px){
   .menu,.tel,.livepill,.nav .btn{display:none}.burger{display:block}
-  .mpanel{display:block;position:fixed;inset:66px 0 0 0;background:var(--paper);z-index:85;transform:translateY(-105%);transition:transform .5s var(--ease);padding:28px var(--gut)}
-  .mpanel.open{transform:none}
+  .mpanel{display:block;position:fixed;inset:66px 0 0 0;background:var(--paper);z-index:85;transform:translateY(-105%);transition:transform .5s var(--ease),visibility 0s .5s;visibility:hidden;overflow:auto;padding:28px var(--gut)}
+  .mpanel.open{transform:none;visibility:visible;transition:transform .5s var(--ease),visibility 0s}
   .mpanel a{display:block;font-family:var(--serif);font-size:38px;line-height:1.2;padding:8px 0;border-bottom:1px solid var(--ln)}
   .mpanel .mp-cta{margin-top:24px;display:flex;flex-direction:column;gap:12px}.mpanel .mp-cta a{font-family:var(--sans);font-size:16px;border:0;padding:0}
 }
@@ -409,7 +409,6 @@ footer .sms{margin-top:28px;padding-top:22px;border-top:1px solid var(--ln);font
     <div data-rv>
       <p class="eye">Bring CareLine to your facility</p>
       <h2 class="t2">Let's talk about <i>your building.</i></h2>
-      <p class="lead" style="margin-top:22px">A 20-minute demo of the line and the data your leadership team would see.</p>
       <div class="hero-cta" style="margin-top:30px"><a class="btn" href="https://calendly.com/ejotkowitz-carelineconcierge/30min" target="_blank" rel="noopener" data-calendly><span>Book a demo</span><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a></div>
     </div>
   </div>
