@@ -229,7 +229,7 @@ section{position:relative}
 .quote .eye{justify-content:center}
 
 /* contact */
-.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,100px)}
+.contact .wrap{display:grid;grid-template-columns:1fr;max-width:820px;text-align:center}.contact .eye{justify-content:center}.contact .lead{margin-inline:auto}.contact .hero-cta{justify-content:center}
 .contact .t2{font-size:clamp(40px,5.4vw,76px)}
 .direct{margin-top:34px;display:grid;gap:14px}
 .direct a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:16px 0;border-top:1px solid var(--ln);font-size:18px;transition:color .3s}
@@ -245,7 +245,7 @@ input:focus,textarea:focus{border-color:var(--ink);outline:none}
 textarea{min-height:120px;resize:vertical}
 form .btn{grid-column:1/-1;justify-self:start}
 .ok{grid-column:1/-1;color:var(--red);font-weight:500}
-@media(max-width:900px){.contact .wrap{grid-template-columns:1fr}}
+
 @media(max-width:560px){form{grid-template-columns:1fr}}
 
 /* footer */
@@ -412,15 +412,6 @@ footer .sms{margin-top:28px;padding-top:22px;border-top:1px solid var(--ln);font
       <p class="lead" style="margin-top:22px">A 20-minute demo of the line and the data your leadership team would see.</p>
       <div class="hero-cta" style="margin-top:30px"><a class="btn" href="https://calendly.com/ejotkowitz-carelineconcierge/30min" target="_blank" rel="noopener" data-calendly><span>Book a demo</span><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a></div>
     </div>
-    <form data-mailto="ejotkowitz@carelineconcierge.com" data-rv>
-      <div class="f"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div>
-      <div class="f"><label for="facility">Facility</label><input id="facility" name="facility" autocomplete="organization"></div>
-      <div class="f"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
-      <div class="f"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
-      <div class="f full"><label for="message">What would you like to solve?</label><textarea id="message" name="message"></textarea></div>
-      <button class="btn" type="submit"><span>Request a demo</span></button>
-      <p class="ok" data-form-ok hidden>Your email app should open with the details filled in. If it doesn't, email us directly.</p>
-    </form>
   </div>
 </section>
 </main>
