@@ -264,18 +264,18 @@
        [data-feed-index]      "case 1 of 4"
   ===================================================================== */
   CL.CASES = [
-    { time: '2:14 AM', from: 'Daughter of resident, Rm 212', via: 'Text', msg: "Mom says her call light hasn't been answered. Can someone check on her?",
-      steps: [['Received', 'CareLine answers within 30 seconds'], ['Documented', 'Logged to the resident record'], ['Routed', 'Charge nurse, 3 West — paged'], ['In progress', 'Nurse at bedside, 2:19 AM'], ['Resolved', 'Family updated by text, 2:31 AM']], elapsed: 'Resolved in 17 minutes' },
-    { time: '9:40 AM', from: 'Resident, Rm 118', via: 'Call', msg: "I'd like to stop getting fish at lunch. Could you let the kitchen know?",
-      steps: [['Received', 'Call answered on the first ring'], ['Documented', 'Dietary preference recorded'], ['Routed', 'Dietary manager notified'], ['In progress', 'Menu updated for the week'], ['Resolved', 'Resident confirmed at lunch']], elapsed: 'Resolved in 42 minutes' },
-    { time: '4:05 PM', from: 'Son of resident, Rm 304', via: 'Call', msg: "Dad's discharge is Friday and we haven't heard about transport or meds.",
-      steps: [['Received', 'Concern heard in full'], ['Documented', 'Discharge checklist opened'], ['Routed', 'Social work + nursing'], ['In progress', 'Planning call set, Thu 11 AM'], ['Resolved', 'Family confirmed and thanked']], elapsed: 'Resolved in 1 hr 10 min' },
-    { time: '11:52 PM', from: 'Wife of resident, Rm 207', via: 'Text', msg: "I heard he had a fall tonight. Nobody has called me. Is he okay?",
-      steps: [['Received', 'Escalated as time-sensitive'], ['Documented', 'Incident flagged for leadership'], ['Routed', 'Nursing supervisor on duty'], ['In progress', 'Supervisor calls family, 12:01 AM'], ['Resolved', 'Family reassured, visit set for morning']], elapsed: 'Resolved in 12 minutes' }
+    { time: '10:10 AM', from: 'Resident, Rm 118', via: 'Call', msg: "I am a resident at the facility and I did not receive my breakfast yet and it's almost 10:15 am.",
+      steps: [['Received', 'Call answered by CareLine'], ['Documented', 'Concern logged and the delay noted'], ['Routed', 'Dietary department notified'], ['In progress', 'Dietary is sending an alternative meal to her room immediately'], ['Resolved', 'Breakfast delivered 10 minutes later. She was thankful for the quick response.']], elapsed: 'Resolved in 10 minutes' },
+    { time: '4:05 PM', from: 'Daughter of resident, Rm 201', via: 'Text', msg: "I'm reaching out to confirm that transportation has been arranged for my dad's appointment tomorrow and that someone will be available to accompany him.",
+      steps: [['Received', 'Text answered by CareLine'], ['Documented', 'Request recorded and the appointment time confirmed'], ['Routed', 'Transportation coordinator contacted for assistance'], ['In progress', 'Transportation verified; staff to accompany him being coordinated'], ['Resolved', '30 minutes later, daughter updated by phone that all logistics are finalized and her father will be well cared for']], elapsed: 'Resolved in 30 minutes' },
+    { time: '9:30 PM', from: 'Wife of resident, Rm 121', via: 'Call', msg: "My husband called to tell me that they don't have his medications in stock and they're not giving him an alternative.",
+      steps: [['Received', 'Call answered by CareLine'], ['Documented', 'Medication concern documented'], ['Routed', 'Escalated directly to the Nurse Supervisor on call'], ['In progress', 'RN Supervisor is on the unit and speaking with the doctor about an alternative now'], ['Resolved', 'Supervisor called the wife to confirm an alternative medication was given. Her husband is very happy.']], elapsed: 'Resolved the same evening' },
+    { time: '2:30 AM', from: 'Son of resident, Rm 211', via: 'Text', msg: "My mom says she has been pressing her call bell for approximately 30 minutes requesting assistance with using the restroom, but no one has come to help her.",
+      steps: [['Received', 'Text answered by CareLine'], ['Documented', 'Wait time and lack of response recorded for visibility and accountability'], ['Routed', 'Nurse Supervisor on call contacted directly'], ['In progress', 'Nursing staff directed to provide prompt attention and assistance'], ['Resolved', 'The resident called her son back: she received immediate help, and CareLine made all the difference.']], elapsed: 'Resolved within minutes' }
   ];
 
   CL.caseFeed = function (root, o) {
-    o = Object.assign({ cases: CL.CASES, hold: 2.6, stepGap: 0.9, typeSpeed: 0.018 }, o || {});
+    o = Object.assign({ cases: CL.CASES, hold: 5, stepGap: 1.8, typeSpeed: 0.03 }, o || {});
     const q = s => root.querySelector(s);
     const clock = q('[data-feed-clock]'), from = q('[data-feed-from]'), via = q('[data-feed-via]'), msg = q('[data-feed-msg]'), steps = q('[data-feed-steps]'), elapsed = q('[data-feed-elapsed]'), index = q('[data-feed-index]');
     let i = 0, timer = 0, alive = true;
